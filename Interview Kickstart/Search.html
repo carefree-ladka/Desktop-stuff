@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search App</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="search"
+      placeholder="search"
+      onchange="handleSearch(this,event)"
+    />
+    <p id="content">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis odit
+      culpa ipsam et omnis, quidem vel repudiandae minus in eveniet eius, sed
+      tempora dicta ipsum natus quas. Libero, eos corporis!
+    </p>
+  </body>
+  <script>
+    function handleSearch(element, event) {
+      const content = element.nextElementSibling;
+      const query = event.target.value.toLowerCase();
+      const paragraphText = content.innerText.toLowerCase();
+      if (!query) content.innerHTML = paragraphText;
+      const highlightedText = paragraphText.replace(
+        new RegExp(query, "g"),
+        (match) => `<span class="highlight">${match}</span>`
+      );
+      content.innerHTML = highlightedText;
+    }
+  </script>
+</html>

@@ -1,0 +1,6 @@
+https://tutorialsdojo.com/aws-cheat-sheets/
+
+https://medium.com/@kanani-nirav/aws-cloud-practitioner-exam-short-notes-a-study-guide-b8dcbebb292e
+https://github.com/kananinirav/AWS-Certified-Cloud-Practitioner-Notes/blob/master/practice-exam/exams.md
+https://www.czerniga.it/2022/09/12/free-aws-cloud-practitioner-materials/
+https://github.com/kennethleungty/AWS-Certified-Cloud-Practitioner-Notes/blob/main/Module%2010%20-%20The%20Cloud%20Journey.pdf

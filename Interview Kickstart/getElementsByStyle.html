@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="color: #ffffff4a">1</div>
+    <div style="color: rgb(255, 255, 255)">10</div>
+    <div style="color: red">2</div>
+    <div style="color: blue">3</div>
+    <script>
+      function getElementsByStyle(property, value) {
+        const matched = [];
+        const elements = document.getElementsByTagName("*");
+        for (let i = 0; i < elements.length; i++) {
+          const element = elements[i];
+          const computedStyle = getComputedStyle(element);
+          if (computedStyle[property] === value) {
+            matched.push(element);
+          }
+        }
+        return matched;
+      }
+
+      console.log(getElementsByStyle("color", "rgb(255, 255, 255)"));
+    </script>
+  </body>
+</html>

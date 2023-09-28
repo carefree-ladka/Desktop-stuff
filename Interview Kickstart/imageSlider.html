@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+  </head>
+  <body>
+    <div id="container">
+      <button onclick="prevImage()" id="prev">prev</button>
+      <button onclick="nextImage()" id="next">next</button>
+      <img src="" alt="" id="image" />
+    </div>
+
+    <script>
+      const container = document.getElementById("container");
+      const img = document.getElementById("image");
+      const prev = document.getElementById("prev");
+      const next = document.getElementById("next");
+      let counter = 0;
+
+      const imageData = [
+        "https://picsum.photos/id/1/200/300",
+        "https://picsum.photos/id/2/200/300",
+        "https://picsum.photos/id/3/200/300",
+        "https://picsum.photos/id/4/200/300",
+        "https://picsum.photos/id/5/200/300",
+      ];
+
+      function prevImage() {
+        if (counter > 0) counter--;
+        if (counter === 0) counter = imageData.length - 1;
+        img.src = imageData[counter];
+      }
+
+      function nextImage() {
+        if (counter < imageData.length - 1) counter++;
+        if (counter === imageData.length - 1) counter = 0;
+        img.src = imageData[counter];
+      }
+
+      img.src = imageData[counter];
+
+      setInterval(nextImage, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      function init() {
+        const conatiner = document.querySelector("#container");
+        const ul = document.createElement("ul");
+        conatiner.append(ul);
+
+        async function getProducts() {
+          const res = await fetch("https://dummyjson.com/carts");
+          const data = await res.json();
+          return data.carts;
+        }
+
+        (async () => {
+          const data = await getProducts();
+          data?.forEach(({ products }) => {
+            products.forEach(showListItems);
+          });
+        })();
+
+        function showListItems({ title, price }) {
+          const li = document.createElement("li");
+          li.innerHTML = `<span>${title}</span> | <span>${price}</span>`;
+          ul.append(li);
+        }
+      }
+
+      init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      #section1 {
+        height: 30px;
+        background: #ddd;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+      }
+      #content {
+        padding: 0 18px;
+        background-color: white;
+        display: none;
+        overflow: hidden;
+      }
+      .active {
+        display: block;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordian</title>
+  </head>
+  <body>
+    <div id="section1">
+      <p>SECTION 1</p>
+      <span id="icon"></span>
+    </div>
+    <div id="content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non laboriosam,
+      rerum eveniet obcaecati beatae ab labore assumenda. Eos optio magnam non
+      eaque ut amet dolorum necessitatibus, consequuntur tempora corrupti nam!
+    </div>
+    <script>
+      const section1 = document.getElementById("section1");
+      const content = document.getElementById("content");
+
+      section1.addEventListener("click", accordian);
+      
+      function accordian() {
+        this.classList.toggle("active");
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .render {
+        display: grid;
+        grid-template-columns: repeat(var(--size), 1fr);
+      }
+      .cell {
+        width: 40px;
+        height: 400px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 18px;
+        border: 1px solid #000;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pattern Asked By Microsoft</title>
+  </head>
+  <body>
+    <label for="size">Enter a positive number</label>
+    <input type="number" id="size" min="1" />
+    <button onclick="render()">render</button>
+    <div class="render" id="render"></div>
+    <script>
+      function render() {
+        const size = document.querySelector("#size").value;
+        const render = document.querySelector("#render");
+        render.innerHTML = "";
+        let num = size * size;
+        for (let i = 0; i < size; i++) {
+          let row = "";
+          let cell;
+          for (let j = 0; j < size; j++) {
+            cell = document.createElement("div");
+            cell.className = "cell";
+            const value = num + "\t";
+            if (i % 2 !== 0) {
+              row = value + row;
+              cell.textContent = row;
+            } else {
+              row += value;
+              cell.textContent = row;
+            }
+            num--;
+          }
+          render.append(cell);
+        }
+        render.style.setProperty("--size", size);
+      }
+    </script>
+  </body>
+</html>
